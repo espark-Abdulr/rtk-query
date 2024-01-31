@@ -1,6 +1,8 @@
 import React from 'react'
 import { useGetAllProductsQuery } from './store/productApi'
 import { Link } from 'react-router-dom'
+import './App.css'
+
 
 const All = () => {
     const { data, isLoading, isError, error } = useGetAllProductsQuery()
@@ -19,7 +21,7 @@ const All = () => {
         <div>
             {data.products.map((eachProduct, index) => (
                 <Link to={`/products/${eachProduct.id}`} key={index}>
-                    <h1>{eachProduct?.title}</h1>
+                    <h1 className='product'>{eachProduct?.title}</h1>
                 </Link>
             ))}
         </div>
